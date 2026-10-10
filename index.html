@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#10151a">
+  <meta name="description" content="灵境堡垒：从一片初始营地，开启文明的漫长旅程。">
+  <title>灵境堡垒 · 文明序章</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="game-shell" id="gameShell">
+    <section class="screen screen--title is-active" id="screen-title" aria-label="游戏主界面">
+      <div class="title-grain" aria-hidden="true"></div>
+      <header class="brand-lockup">
+        <div class="brand-seal" aria-hidden="true"><span>灵</span></div>
+        <div>
+          <div class="brand-name">灵境堡垒</div>
+          <div class="brand-subtitle">A CIVILIZATION IN THE MAKING</div>
+        </div>
+      </header>
+
+      <div class="title-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span>文明发展 · 探索 · 经营 · 战斗</p>
+        <h1>从一方营地，<br><em>走向万境之上。</em></h1>
+        <p class="title-description">未知的土地正等待第一个脚印。<br>在这里，文明的每一步都由你亲手写下。</p>
+        <button class="button button--primary button--start" data-action="open-mode">
+          <span>开始游戏</span><span class="button-arrow" aria-hidden="true">↗</span>
+        </button>
+        <div class="title-footnote"><span class="status-dot"></span>序章版本 <span class="footnote-divider">/</span> 旅程将保存在本机</div>
+      </div>
+
+      <div class="title-edition"><span>EARLY CHRONICLE</span><span>—</span><span>01</span></div>
+      <div class="title-bottom-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+    </section>
+
+    <section class="screen screen--lord" id="screen-lord" aria-label="选择领主" hidden>
+      <div class="screen-wash screen-wash--title" aria-hidden="true"></div>
+      <header class="screen-topline">
+        <button class="back-button" data-action="back-saves" aria-label="返回存档选择"><span>←</span> 存档选择</button>
+        <div class="step-indicator"><span>01</span><i></i><span class="step-current">选择领主</span><i></i><span>开启旅程</span></div>
+        <div class="active-save-label" id="lordSaveLabel">存档 01</div>
+      </header>
+
+      <div class="lord-heading">
+        <p class="eyebrow"><span class="eyebrow-line"></span>你的故事，从此人开始</p>
+        <h2>选择一位<span>领主</span></h2>
+        <p>每个存档拥有独立的领主。此角色为临时设定，后续可替换。</p>
+      </div>
+
+      <div class="lord-stage">
+        <div class="lord-reel" role="list" aria-label="可选领主">
+          <button class="lord-card is-selected" data-action="select-lord" role="listitem" aria-pressed="true">
+            <span class="lord-card-index">01 <i></i> TEMPORARY</span>
+            <span class="lord-card-portrait"><img src="assets/lord-placeholder.png" alt="临时领主角色立绘"></span>
+            <span class="lord-card-title">无名的开拓者</span>
+            <span class="lord-card-subtitle">临时领主 · 可替换</span>
+            <span class="lord-card-check" aria-hidden="true">✓</span>
+          </button>
+          <div class="lord-card lord-card--future" role="listitem" aria-disabled="true"><span class="future-mark">＋</span><span>后续领主</span><small>敬请期待</small></div>
+          <div class="lord-card lord-card--future" role="listitem" aria-disabled="true"><span class="future-mark">＋</span><span>后续领主</span><small>敬请期待</small></div>
+          <div class="lord-card lord-card--future" role="listitem" aria-disabled="true"><span class="future-mark">＋</span><span>后续领主</span><small>敬请期待</small></div>
+          <div class="lord-card lord-card--future" role="listitem" aria-disabled="true"><span class="future-mark">＋</span><span>后续领主</span><small>敬请期待</small></div>
+        </div>
+
+        <aside class="lord-dossier">
+          <div class="dossier-kicker"><span>领主档案</span><span class="dossier-seal">临</span></div>
+          <h3>无名的<br>开拓者</h3>
+          <p class="dossier-quote">“在地图的边缘，<br>也能种下未来。”</p>
+          <div class="dossier-divider"></div>
+          <dl>
+            <div><dt>身份</dt><dd>暂定设定</dd></div>
+            <div><dt>起始时代</dt><dd>原始时代</dd></div>
+            <div><dt>专长</dt><dd>待后续设计</dd></div>
+          </dl>
+          <button class="button button--primary button--wide" data-action="confirm-lord"><span>选定此领主</span><span class="button-arrow" aria-hidden="true">→</span></button>
+        </aside>
+      </div>
+      <div class="screen-corner-note">THE FIRST CHRONICLER <span>·</span> 01 / 05</div>
+    </section>
+
+    <section class="screen screen--worlds" id="screen-worlds" aria-label="选择世界" hidden>
+      <div class="screen-wash screen-wash--worlds" aria-hidden="true"></div>
+      <header class="screen-topline screen-topline--light">
+        <button class="back-button" data-action="back-lord" aria-label="返回选择领主"><span>←</span> 领主选择</button>
+        <div class="active-save-label" id="worldLordLabel">无名的开拓者</div>
+      </header>
+      <div class="world-heading">
+        <p class="eyebrow"><span class="eyebrow-line"></span>雾海之上 · 万境待启</p>
+        <h2>选择一个<span>世界</span></h2>
+        <p>拖动雾海，或按 A / D，让群岛在你眼前轮转。</p>
+      </div>
+      <div class="world-carousel" id="worldCarousel" aria-label="世界环岛选择">
+        <button class="carousel-arrow carousel-arrow--prev" data-action="world-prev" aria-label="切换到上一个世界">‹</button>
+        <div class="world-stage" id="worldStage" aria-live="polite"></div>
+        <button class="carousel-arrow carousel-arrow--next" data-action="world-next" aria-label="切换到下一个世界">›</button>
+        <div class="world-orbit-caption"><span class="orbit-caption-line"></span><span>DRAG TO TURN</span><span class="orbit-caption-line"></span></div>
+      </div>
+      <div class="world-bottom-panel">
+        <div class="world-selection-copy"><span class="selection-index" id="worldCounter">WORLD / 01</span><strong id="worldTitle">初始之地</strong><span id="worldDescription">文明的第一片土地</span></div>
+        <div class="world-bottom-actions">
+          <button class="directory-button" data-action="open-world-directory"><span class="directory-glyph" aria-hidden="true">☷</span><span>世界目录</span></button>
+          <button class="button button--primary" id="enterWorldButton" data-action="enter-world"><span>进入此世界</span><span class="button-arrow" aria-hidden="true">→</span></button>
+        </div>
+      </div>
+      <div class="world-count"><span class="status-dot"></span><span id="worldCountSummary">已开放世界 <b>01</b></span><span class="world-count-rule"></span><span id="worldCountTotal">共 05 个世界坐标</span></div>
+      <div class="world-directory overlay" id="worldDirectory" hidden>
+        <div class="overlay-scrim" data-action="close-world-directory"></div>
+        <section class="directory-panel" role="dialog" aria-modal="true" aria-labelledby="directoryTitle">
+          <button class="panel-close" data-action="close-world-directory" aria-label="关闭世界目录">×</button>
+          <div class="panel-kicker"><span class="panel-kicker-line"></span>WORLD ATLAS<span class="panel-kicker-line"></span></div>
+          <h2 id="directoryTitle">世界<span>目录</span></h2>
+          <p>从已知坐标进入，未知世界仍等待发现。</p>
+          <div class="directory-list" id="worldDirectoryList"></div>
+        </section>
+      </div>
+    </section>
+
+    <section class="screen screen--regions" id="screen-regions" aria-label="初始之地地图" hidden>
+      <div class="screen-wash screen-wash--regions" aria-hidden="true"></div>
+      <div class="region-viewport" id="regionViewport" aria-label="可拖动的区域地图">
+        <div class="region-map-plane" id="regionMapPlane">
+          <button class="region-point region-point--camp" data-action="open-camp" aria-label="查看初始区域">
+            <span class="region-point-ring"></span><span class="camp-glyph" aria-hidden="true">⌂</span>
+            <span class="region-point-label"><b>初始区域</b><small>安全地带 · 可进入</small></span>
+          </button>
+          <button class="region-point region-point--forest" data-action="show-unknown" aria-label="未探索区域">
+            <span class="unknown-pulse"></span><span class="region-point-label"><b>未探索区域</b><small>视野之外</small></span>
+          </button>
+          <button class="region-point region-point--lake" data-action="show-unknown" aria-label="未探索区域">
+            <span class="unknown-pulse"></span><span class="region-point-label"><b>未探索区域</b><small>待探勘</small></span>
+          </button>
+          <button class="region-point region-point--mine" data-action="show-unknown" aria-label="尚未勘察的矿洞">
+            <span class="unknown-pulse"></span><span class="region-point-label"><b>山麓矿洞</b><small>尚未勘察</small></span>
+          </button>
+          <button class="region-point region-point--border" data-action="show-unknown" aria-label="尚未探索的势力边境">
+            <span class="unknown-pulse"></span><span class="region-point-label"><b>迷雾边境</b><small>未知势力</small></span>
+          </button>
+        </div>
+      </div>
+      <header class="screen-topline screen-topline--region">
+        <button class="back-button" data-action="back-worlds" aria-label="返回选择世界"><span>←</span> 世界地图</button>
+        <div class="region-breadcrumb"><span>世界 01</span><i>/</i><strong>初始之地</strong></div>
+        <div class="active-save-label" id="regionLordLabel">无名的开拓者</div>
+      </header>
+      <div class="region-heading">
+        <p class="eyebrow"><span class="eyebrow-line"></span>初始之地 · 探索区域</p>
+        <h2>从这里，<span>开始拓荒。</span></h2>
+        <p>拖动地图查看已知地貌。森林、矿洞与未知势力，都在边界之外等待探索。</p>
+      </div>
+      <div class="region-map-tools" aria-label="地图状态">
+        <span class="map-tool-icon" aria-hidden="true">⌖</span>
+        <span><b>区域视图</b><small>拖动浏览 <i>·</i> 点击地点</small></span>
+      </div>
+      <div class="region-bottom-hint"><span class="hint-key">点击</span> 初始区域进入营地 <span class="hint-divider">·</span> 拖动地图探索周边</div>
+      <div class="region-edge-mark" aria-hidden="true"><span></span> FIELD NOTES <b>01</b></div>
+    </section>
+
+    <section class="screen screen--local" id="screen-local" aria-label="初始营地地图" hidden>
+      <div class="local-viewport" id="localViewport">
+        <div class="local-map-plane" id="localMapPlane">
+          <div class="map-boundary" aria-hidden="true"><span>初始之地</span></div>
+          <div class="world-depth-layer">
+            <div class="world-objects" id="worldObjects"></div>
+            <button type="button" class="local-player" id="localPlayer" data-unit-id="lord" aria-label="选中领主"><span class="player-shadow"></span><span class="lord-sprite" id="lordSprite" aria-hidden="true"></span><span class="player-caption">领主</span></button>
+          </div>
+          <div class="building-ghost" id="buildingGhost" hidden><img src="assets/main-base.png" alt=""><span>放置建筑</span></div>
+          <div class="map-north" aria-hidden="true"><span>N</span><i>↑</i></div>
+        </div>
+      </div>
+      <div class="map-view-controls" role="group" aria-label="地图视角控制">
+        <button type="button" data-action="map-zoom-in" aria-label="放大地图">+</button>
+        <button type="button" data-action="map-center" aria-label="定位到领主">⌖</button>
+        <button type="button" data-action="map-zoom-out" aria-label="缩小地图">−</button>
+        <span id="mapZoomReadout">76%</span>
+      </div>
+      <header class="local-topbar">
+        <button class="back-button" data-action="back-regions"><span>←</span> 区域地图</button>
+        <div class="local-location"><span class="location-dot"></span><div><b>初始营地</b><small>初始之地 · 原始时代</small></div></div>
+        <div class="local-turn-status"><span>第 <b id="turnCount">1</b> 日</span></div>
+        <div class="local-resource"><span class="resource-mark resource-mark--wood"><img src="assets/wood-resource.png" alt=""></span><span><small>木材</small><b id="woodCount">0</b><i id="woodRate">+0 / 日</i></span><span class="resource-mark resource-mark--stone"><img src="assets/stone-resource.png" alt=""></span><span><small>石料</small><b id="stoneCount">0</b><i id="stoneRate">+0 / 日</i></span><span class="resource-mark resource-mark--food"><img src="assets/food-resource.png" alt=""></span><span><small>粮食</small><b id="foodCount">0</b><i id="foodRate">+0 / 日</i></span><span class="population-mark" aria-hidden="true">♟</span><span class="population-stat"><small>居民</small><b id="populationCount">4 / 4</b><i id="manpowerCount">可征募 4</i></span><button class="warehouse-button" data-action="open-warehouse" aria-label="打开仓库"><span aria-hidden="true">▤</span> 仓库</button></div>
+      </header>
+      <aside class="local-objective" id="tutorialPanel"><span class="objective-mark" id="objectiveIndex">01</span><div><small>开拓日志 <i id="objectiveCounter">· 0 / 2</i></small><b id="objectiveText">寻找林地，控制木材地块</b><span class="objective-progress"><i id="objectiveProgress"></i></span></div><button data-action="hide-objective" aria-label="收起日志">−</button></aside>
+      <div class="interaction-prompt" id="interactionPrompt" hidden><span class="interaction-key" id="interactionKey">2 / 2</span><span id="interactionText">初始营地 · 草原</span><span class="interaction-tip">点击可达地块移动</span></div>
+      <aside class="selection-panel" id="selectionPanel" aria-live="polite" aria-label="当前选中对象">
+        <header><div><small id="selectionKind">单位 · 开拓者</small><b id="selectionName">无名的开拓者</b></div><button type="button" data-action="close-selection" aria-label="收起信息面板">×</button></header>
+        <div id="selectionDetails"></div>
+      </aside>
+      <div class="local-toolbar">
+        <button data-action="toggle-build" class="toolbar-button"><span class="toolbar-icon">⌂</span><span>建造</span><kbd>B</kbd></button>
+        <button data-action="open-tech" class="toolbar-button"><span class="toolbar-icon">⌘</span><span>科技</span><kbd>T</kbd></button>
+        <button data-action="toggle-objective" class="toolbar-button"><span class="toolbar-icon">≡</span><span>开拓日志</span></button>
+        <button data-action="end-turn" class="toolbar-button toolbar-button--turn"><span class="toolbar-icon">⏭</span><span>结束回合</span><kbd>空格</kbd></button>
+      </div>
+      <div class="mobile-controls" id="mobileControls" aria-label="手机触屏操作" hidden>
+        <div class="mobile-joystick" id="mobileJoystick" aria-hidden="true" hidden>
+          <div class="joystick-ring"><span class="joystick-knob" id="joystickKnob"></span></div>
+          <span class="joystick-caption">移动</span>
+        </div>
+        <div class="mobile-action-pad" aria-label="快捷操作">
+          <button class="mobile-action mobile-action--primary" id="mobileEndTurnButton" data-action="end-turn" aria-label="结束当前回合"><span class="mobile-action-icon">⏭</span><b>结束回合</b></button>
+          <button class="mobile-action" data-action="toggle-build" aria-label="打开建造"><span class="mobile-action-icon">⌂</span><b>建造</b></button>
+          <button class="mobile-action" data-action="open-tech" aria-label="打开科技"><span class="mobile-action-icon">⌘</span><b>科技</b></button>
+          <button class="mobile-action" data-action="toggle-objective" aria-label="开拓日志"><span class="mobile-action-icon">≡</span><b>日志</b></button>
+        </div>
+      </div>
+      <div class="orientation-prompt" id="orientationPrompt" role="dialog" aria-modal="true" aria-labelledby="orientationTitle" hidden>
+        <div class="orientation-card"><span class="orientation-icon" aria-hidden="true">↻</span><small>横屏体验</small><h2 id="orientationTitle">旋转设备，<br>展开你的营地。</h2><p>横屏可获得更宽阔的视野。你也可以继续竖屏游玩。</p><button data-action="continue-portrait">继续竖屏</button></div>
+      </div>
+      <section class="technology-overlay" id="technologyOverlay" role="dialog" aria-modal="true" aria-labelledby="technologyTitle" hidden>
+        <button class="technology-scrim" data-action="close-tech" aria-label="关闭科技树"></button>
+        <div class="technology-shell">
+          <header class="technology-header">
+            <button class="technology-back" data-action="close-tech"><span>←</span> 返回营地</button>
+            <div class="technology-heading">
+              <p class="technology-kicker"><span></span>文明演进 · 研究脉络</p>
+              <h2 id="technologyTitle">时代与<span>科技</span></h2>
+              <p>原始时代的木器研究现已开放，其余研究分支将随文明逐步补充。</p>
+            </div>
+            <div class="technology-progress"><small>时代浏览</small><b id="techEraCounter">01 <i>/ 08</i></b></div>
+            <button class="technology-close" data-action="close-tech" aria-label="关闭科技树">×</button>
+          </header>
+          <nav class="technology-era-nav" id="techEraNav" aria-label="选择时代"></nav>
+          <div class="technology-track-wrap">
+            <button class="technology-arrow technology-arrow--prev" data-action="tech-prev" aria-label="上一个时代">←</button>
+            <div class="technology-track" id="techEraTrack" tabindex="0" aria-label="横向浏览时代科技树"></div>
+            <button class="technology-arrow technology-arrow--next" data-action="tech-next" aria-label="下一个时代">→</button>
+          </div>
+          <footer class="technology-footer"><span><i></i> 研究进度保存在当前存档</span><span class="technology-footer-hint"><kbd>A</kbd><kbd>D</kbd> 或滑动切换时代</span></footer>
+        </div>
+      </section>
+      <section class="warehouse-panel" id="warehousePanel" aria-label="仓库" hidden>
+        <header><div><small>营地物资</small><b>仓库</b></div><span class="warehouse-capacity">储量不设上限</span><button data-action="close-warehouse" aria-label="关闭仓库">×</button></header>
+        <div class="warehouse-tab">基础材料 <span>FOUNDATION</span></div>
+        <div class="warehouse-items">
+          <div class="warehouse-item"><span class="warehouse-item-icon resource-mark--wood"><img src="assets/wood-resource.png" alt=""></span><span><b>木材</b><small>建造与制作材料</small></span><strong id="warehouseWood">0</strong></div>
+          <div class="warehouse-item"><span class="warehouse-item-icon resource-mark--stone"><img src="assets/stone-resource.png" alt=""></span><span><b>石料</b><small>建造与制作材料</small></span><strong id="warehouseStone">0</strong></div>
+          <div class="warehouse-item"><span class="warehouse-item-icon resource-mark--food"><img src="assets/food-resource.png" alt=""></span><span><b>粮食</b><small>果树林地块产出</small></span><strong id="warehouseFood">0</strong></div>
+        </div>
+        <footer>已控制地块的产出会在每回合结束时自动入库</footer>
+      </section>
+      <section class="build-panel" id="buildPanel" aria-label="建筑列表" hidden>
+        <header><div><small>营地建设</small><b>建筑列表</b></div><button data-action="close-build" aria-label="关闭建筑列表">×</button></header>
+        <div class="build-options" id="buildOptions"></div>
+        <footer><span>建筑需建在已控制的合适地块</span><span id="buildModeLabel">选择建筑查看位置要求</span></footer>
+      </section>
+      <div class="local-controls"><span class="mobile-browse-note">选中单位后，点击可达地块下令移动</span><span class="map-drag-hint">拖动地图 · 滚轮缩放</span><span class="hex-key-cluster"><i>Q</i><i>W</i><i>E</i><i>A</i><i>S</i><i>D</i></span><span>选中单位后移动</span><span class="control-divider"></span><kbd>空格</kbd><span>结束回合</span><kbd>B</kbd><span>建造</span><kbd>T</kbd><span>科技</span><kbd>I</kbd><span>仓库</span></div>
+      <div class="local-edge" aria-hidden="true"><span></span> THE FIRST FRONTIER <b>01</b></div>
+      <div class="toast toast--local" id="localToast" role="status" aria-live="polite"></div>
+    </section>
+
+    <div class="assistant-dialog" id="assistantDialog" data-mode="research" hidden>
+      <div class="assistant-dialog-backdrop"></div>
+      <section class="assistant-dialog-card" role="dialog" aria-modal="true" aria-labelledby="assistantDialogTitle">
+        <div class="assistant-dialog-scene" aria-hidden="true">
+          <span class="assistant-scene-kicker" id="assistantSceneKicker">初始营地 · 研究纪事</span>
+          <img class="assistant-advisor-portrait" src="assets/assistant-advisor.png" alt="米娜，领主助理" decoding="async">
+          <span class="assistant-scene-caption" id="assistantSceneCaption">A NEW TOOL · 01</span>
+        </div>
+        <div class="assistant-dialog-copy">
+          <p class="assistant-dialog-kicker"><span></span><span id="assistantDialogLabel">新发现 · 木器研究</span></p>
+          <h3 id="assistantDialogTitle">米娜 · 领主助理</h3>
+          <p class="assistant-dialog-line">领主，我们发现了一种工具，看来野兽也会惧怕我们了吧。</p>
+          <p class="assistant-dialog-note">木制工具即将投入使用。确认后，研究成果将写入这份存档。</p>
+          <button class="assistant-dialog-continue" data-action="activate-woodcraft"><span>记下这项发现</span><b>确认并激活研究 →</b></button>
+          <span class="assistant-dialog-footnote">点击后，木制工具将解锁</span>
+        </div>
+      </section>
+    </div>
+
+    <div class="mode-overlay" id="modeOverlay" hidden>
+      <button class="mode-scrim" data-action="close-mode" aria-label="关闭操作模式选择"></button>
+      <section class="mode-panel" role="dialog" aria-modal="true" aria-labelledby="modeTitle">
+        <button class="panel-close" data-action="close-mode" aria-label="关闭操作模式选择">×</button>
+        <div class="panel-kicker"><span class="panel-kicker-line"></span>CHOOSE YOUR CONTROLS<span class="panel-kicker-line"></span></div>
+        <h2 id="modeTitle">选择你的<span>操作方式</span></h2>
+        <p class="mode-panel-intro">选择后进入存档。此设置可在开始界面重新调整。</p>
+        <div class="mode-choice-grid">
+          <button class="mode-card" data-action="choose-mode" data-mode="desktop">
+            <span class="mode-card-icon" aria-hidden="true">⌨</span><span class="mode-card-copy"><b>电脑操作</b><small>六向按键 · 鼠标点格</small></span><span class="mode-card-arrow">→</span>
+          </button>
+          <button class="mode-card" data-action="choose-mode" data-mode="mobile">
+            <span class="mode-card-icon mode-card-icon--mobile" aria-hidden="true">▯</span><span class="mode-card-copy"><b>手机操作</b><small>触屏点格 · 回合行动</small></span><span class="mode-card-arrow">→</span>
+          </button>
+        </div>
+        <footer class="mode-panel-footer"><span><i class="status-dot"></i>可随时重新选择</span><span>06 个存档席位</span></footer>
+      </section>
+    </div>
+
+    <div class="overlay" id="saveOverlay" hidden>
+      <div class="overlay-scrim" data-action="close-saves"></div>
+      <section class="save-panel" role="dialog" aria-modal="true" aria-labelledby="saveTitle">
+        <button class="panel-close" data-action="close-saves" aria-label="关闭存档选择">×</button>
+        <div class="panel-kicker"><span class="panel-kicker-line"></span>CHOOSE YOUR CHRONICLE<span class="panel-kicker-line"></span></div>
+        <h2 id="saveTitle">选择一份<span>存档</span></h2>
+        <p class="save-panel-intro">每一段文明旅程，都将独立保存。</p>
+        <div class="save-grid" id="saveGrid"></div>
+        <div class="save-panel-footer"><button class="save-mode-back" data-action="back-to-mode">← 操作方式</button><span class="save-status"><span class="status-dot"></span>存档保存在当前浏览器</span><span>共 06 个席位</span></div>
+      </section>
+    </div>
+
+    <div class="camp-dialog" id="campDialog" hidden>
+      <div class="overlay-scrim" data-action="close-camp"></div>
+      <section class="camp-panel" role="dialog" aria-modal="true" aria-labelledby="campTitle">
+        <button class="panel-close" data-action="close-camp" aria-label="关闭区域详情">×</button>
+        <span class="camp-panel-mark" aria-hidden="true">⌂</span>
+        <p class="eyebrow"><span class="eyebrow-line"></span>安全区域 · 可进入</p>
+        <h2 id="campTitle">初始营地</h2>
+        <p>一片临河的空地，周围有林木、石料与尚未开启的矿洞。这里将成为你的文明起点。</p>
+        <div class="camp-panel-meta"><span>探索范围 <b>有限边界</b></span><span>当前时代 <b>原始时代</b></span></div>
+        <button class="button button--primary button--wide" data-action="enter-camp"><span>进入初始区域</span><span class="button-arrow" aria-hidden="true">→</span></button>
+      </section>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </main>
+</body>
+</html>
